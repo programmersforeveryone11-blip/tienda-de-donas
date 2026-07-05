@@ -16,8 +16,8 @@
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
-            /* Se utiliza exactamente el nombre del archivo subido como fondo de pantalla completo */
-            background-image: url('스냅.jpg');
+            /* Se utiliza exactamente el nombre de la nueva imagen subida como fondo de pantalla completo */
+            background-image: url('saa.jpg');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -922,6 +922,7 @@
             }, 200);
         }
 
+        // Agregar al carrito
         function addToCart(id) {
             const donut = donutsData.find(d => d.id === id);
             if (!donut) return;
