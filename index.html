@@ -1,0 +1,1073 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dulces Delicias - Donde los sueños dulces se hacen realidad</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Playfair Display para títulos y Montserrat para el cuerpo -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Playfair+Display:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-image: url('스냅.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            overflow-x: hidden;
+        }
+        .font-serif-fancy {
+            font-family: 'Playfair Display', serif;
+        }
+        /* Ondas del borde inferior general */
+        .scalloped-border {
+            background-image: radial-gradient(circle at 15px 0px, transparent 15px, #ffffff 16px);
+            background-size: 30px 30px;
+            height: 30px;
+            width: 100%;
+        }
+        /* Efecto de scroll ocultando barra */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Transición de diapositivas suave de 10 segundos */
+        .star-slide {
+            opacity: 0;
+            transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(0.97);
+            pointer-events: none;
+        }
+        .star-slide.active {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+
+        /* Transición suave de diapositivas de de opiniones */
+        .review-slide {
+            opacity: 0;
+            transition: opacity 1.2s ease-in-out, transform 1.2s ease-in-out;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform: scale(0.98);
+            pointer-events: none;
+        }
+        .review-slide.active {
+            opacity: 1;
+            transform: scale(1);
+            pointer-events: auto;
+        }
+
+        /* Animación suave flotante para las frutas decorativas */
+        @keyframes floatSlow {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(5deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        .floating-fruit {
+            animation: floatSlow 6s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between relative selection:bg-blue-300 selection:text-blue-900">
+
+    <!-- HEADER -->
+    <header class="w-full px-6 md:px-12 py-5 flex justify-between items-center z-10 bg-white/10 backdrop-blur-xs">
+        <!-- Menú de la izquierda -->
+        <button onclick="toggleSidebarMenu()" class="flex items-center gap-2 text-blue-900 font-semibold hover:opacity-85 transition-all focus:outline-none">
+            <i class="fa-solid fa-bars text-lg"></i>
+            <span class="hidden sm:inline tracking-wider uppercase text-sm">Menú</span>
+        </button>
+
+        <!-- Logo Central -->
+        <h1 class="font-serif-fancy text-2xl md:text-3xl font-extrabold text-blue-900 tracking-wide cursor-pointer hover:scale-105 transition-transform" onclick="resetSearch()">
+            Dulces Delicias
+        </h1>
+
+        <!-- Íconos de la Derecha -->
+        <div class="flex items-center gap-5 text-blue-900 text-lg">
+            <button onclick="toggleCart()" class="relative hover:scale-110 transition-transform focus:outline-none" title="Ver Carrito">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span id="cart-badge" class="absolute -top-2 -right-2 bg-pink-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">
+                    0
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="flex-grow flex flex-col items-center justify-center z-10 text-center">
+        <!-- Slogan Principal -->
+        <div class="px-4 md:px-12 mt-6">
+            <h2 class="font-serif-fancy text-4xl md:text-6xl lg:text-7xl font-bold text-blue-900 max-w-4xl leading-tight mb-10 drop-shadow-md">
+                Donde los Dulces Sueños <br class="hidden md:inline"> se Hacen Deliciosa Realidad
+            </h2>
+        </div>
+
+        <!-- GRID DE LAS DONAS UTILIZANDO TUS IMÁGENES (SOLO IMÁGENES EN .PNG ORIGINAL) -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-10 max-w-6xl w-full mb-12 px-8">
+            
+            <!-- Dona 1: Chocolate Glaseado -->
+            <div onclick="showDonutDetails(0)" class="group bg-white/30 hover:bg-white/60 backdrop-blur-md p-6 rounded-3xl transition-all duration-300 transform hover:-translate-y-3 hover:shadow-xl cursor-pointer text-center border border-white/40 flex items-center justify-center">
+                <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto transition-transform duration-300 group-hover:scale-110">
+                    <img src="donut_chocolate_glaze_3d.jpg-removebg-preview.png" alt="Chocolate Glaseado" class="w-full h-full object-contain drop-shadow-lg">
+                </div>
+            </div>
+
+            <!-- Dona 2: Glaseado Blanco con Maní -->
+            <div onclick="showDonutDetails(1)" class="group bg-white/30 hover:bg-white/60 backdrop-blur-md p-6 rounded-3xl transition-all duration-300 transform hover:-translate-y-3 hover:shadow-xl cursor-pointer text-center border border-white/40 flex items-center justify-center">
+                <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto transition-transform duration-300 group-hover:scale-110">
+                    <img src="donut_white_glaze_peanut_condensed_milk.jpg-removebg-preview.png" alt="Glaseado Blanco Maní" class="w-full h-full object-contain drop-shadow-lg">
+                </div>
+            </div>
+
+            <!-- Dona 3: Dulce de Leche Cookies -->
+            <div onclick="showDonutDetails(2)" class="group bg-white/30 hover:bg-white/60 backdrop-blur-md p-6 rounded-3xl transition-all duration-300 transform hover:-translate-y-3 hover:shadow-xl cursor-pointer text-center border border-white/40 flex items-center justify-center">
+                <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto transition-transform duration-300 group-hover:scale-110">
+                    <img src="donut_dulce_de_leche_cookies.jpg-removebg-preview.png" alt="Dulce de Leche & Galletas" class="w-full h-full object-contain drop-shadow-lg">
+                </div>
+            </div>
+
+            <!-- Dona 4: Glaseado Rosa -->
+            <div onclick="showDonutDetails(3)" class="group bg-white/30 hover:bg-white/60 backdrop-blur-md p-6 rounded-3xl transition-all duration-300 transform hover:-translate-y-3 hover:shadow-xl cursor-pointer text-center border border-white/40 flex items-center justify-center">
+                <div class="relative w-32 h-32 md:w-40 md:h-40 mx-auto transition-transform duration-300 group-hover:scale-110">
+                    <img src="donut_pink_glaze_3d.jpg-removebg-preview.png" alt="Glaseado Rosa" class="w-full h-full object-contain drop-shadow-lg">
+                </div>
+            </div>
+
+        </div>
+
+        <!-- BARRA DE BÚSQUEDA INTERACTIVA -->
+        <div class="w-full max-w-xl px-4 mb-14">
+            <form onsubmit="handleSearch(event)" class="flex items-center bg-white rounded-full overflow-hidden shadow-lg p-1.5 border border-blue-100 focus-within:ring-4 focus-within:ring-blue-200 transition-all">
+                <div class="pl-4 text-blue-400">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+                <input type="text" id="search-input" placeholder="Encuentra tu postre favorito..." class="w-full px-4 py-2 text-blue-900 font-medium placeholder-blue-300 focus:outline-none bg-transparent">
+                <button type="submit" class="bg-blue-900 hover:bg-blue-800 text-white font-semibold py-3 px-8 rounded-full transition-all tracking-wider">
+                    Buscar
+                </button>
+            </form>
+            <p id="search-feedback" class="text-pink-600 text-sm mt-3 font-semibold hidden"></p>
+        </div>
+
+        <!-- SECCIÓN ESTRELLA RECREADA CON IMAGEN DE FONDO COMPLETA DE TU SELECCIÓN -->
+        <section class="w-full relative overflow-hidden my-8 max-w-6xl mx-auto px-4">
+            <!-- Contenedor del Carrusel Dinámico (Cambio constante cada 10s) -->
+            <div class="relative w-full h-[340px] sm:h-[420px] md:h-[460px] lg:h-[520px] rounded-3xl overflow-hidden shadow-2xl">
+                
+                <!-- SLIDE 1: Blueberry Bliss Cake (dona.jpg) -->
+                <div id="star-slide-0" class="star-slide active w-full h-full absolute inset-0 bg-cover bg-center flex items-center justify-start p-6 md:p-12 lg:p-16" style="background-image: url('dona.jpg');">
+                    <!-- Botón para volver a abrir los detalles si están ocultos -->
+                    <button id="info-btn-0" onclick="toggleSlideInfo(0, true)" class="absolute bottom-6 left-6 bg-blue-900/90 hover:bg-blue-900 text-white font-semibold py-2.5 px-5 rounded-full transition-all shadow-lg flex items-center gap-2 text-sm pointer-events-auto hidden">
+                        <i class="fa-solid fa-circle-info"></i> Ver Detalles
+                    </button>
+
+                    <!-- Tarjeta Glassmorphic encima del fondo de tu imagen (Colapsable) -->
+                    <div id="info-card-0" class="w-full sm:w-2/3 md:w-1/2 text-left bg-white/20 hover:bg-white/30 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/30 shadow-lg max-w-md cursor-pointer transition-all duration-300 group pointer-events-auto relative">
+                        <!-- Botón de Cerrar/Ocultar -->
+                        <button onclick="event.stopPropagation(); toggleSlideInfo(0, false)" class="absolute top-4 right-4 text-blue-900/60 hover:text-blue-900 w-8 h-8 rounded-full bg-white/40 hover:bg-white/80 flex items-center justify-center transition-colors shadow-sm" title="Ocultar Texto">
+                            <i class="fa-solid fa-times"></i>
+                        </button>
+
+                        <div onclick="addStarTreatToCart('Tarta Éxtasis de Arándano', 25.00, 'dona.jpg')">
+                            <span class="text-blue-900/60 font-serif-fancy text-base md:text-lg font-bold block mb-1">Nuestro Dulce Estrella</span>
+                            <h4 class="font-serif-fancy text-xl md:text-2xl font-black text-blue-900 mb-2 group-hover:text-pink-600 transition-colors">Pastel Éxtasis de Arándano</h4>
+                            <p class="text-blue-950/90 text-xs md:text-sm leading-relaxed mb-4 font-semibold">
+                                Disfruta de la delicia pura con nuestro Pastel de Arándanos. Está hecho con amor, con jugosos arándanos sobre un suave bizcocho de vainilla. Este pastel es especial, perfecto para compartir o saborear a solas. ¡Es tuyo por solo $25! ¡Disfrútalo!
+                            </p>
+                            <span class="text-lg md:text-xl font-black text-blue-900 block mt-2">$25.00 (Molde de 8")</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2: Strawberry Delight Cake (dona22.jpg) -->
+                <div id="star-slide-1" class="star-slide w-full h-full absolute inset-0 bg-cover bg-center flex items-center justify-start p-6 md:p-12 lg:p-16" style="background-image: url('dona22.jpg');">
+                    <!-- Botón para volver a abrir los detalles si están ocultos -->
+                    <button id="info-btn-1" onclick="toggleSlideInfo(1, true)" class="absolute bottom-6 left-6 bg-blue-900/90 hover:bg-blue-900 text-white font-semibold py-2.5 px-5 rounded-full transition-all shadow-lg flex items-center gap-2 text-sm pointer-events-auto hidden">
+                        <i class="fa-solid fa-circle-info"></i> Ver Detalles
+                    </button>
+
+                    <!-- Tarjeta Glassmorphic encima del fondo de tu imagen (Colapsable) -->
+                    <div id="info-card-1" class="w-full sm:w-2/3 md:w-1/2 text-left bg-white/20 hover:bg-white/30 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/30 shadow-lg max-w-md cursor-pointer transition-all duration-300 group pointer-events-auto relative">
+                        <!-- Botón de Cerrar/Ocultar -->
+                        <button onclick="event.stopPropagation(); toggleSlideInfo(1, false)" class="absolute top-4 right-4 text-blue-900/60 hover:text-blue-900 w-8 h-8 rounded-full bg-white/40 hover:bg-white/80 flex items-center justify-center transition-colors shadow-sm" title="Ocultar Texto">
+                            <i class="fa-solid fa-times"></i>
+                        </button>
+
+                        <div onclick="addStarTreatToCart('Tarta Delicia de Fresa', 27.00, 'dona22.jpg')">
+                            <span class="text-blue-900/60 font-serif-fancy text-base md:text-lg font-bold block mb-1">Nuestro Dulce Estrella</span>
+                            <h4 class="font-serif-fancy text-xl md:text-2xl font-black text-blue-900 mb-2 group-hover:text-pink-600 transition-colors">Pastel Delicia de Fresa</h4>
+                            <p class="text-blue-950/90 text-xs md:text-sm leading-relaxed mb-4 font-semibold">
+                                Disfruta de la delicia pura con nuestro Pastel de Fresa. Hecho con amor, con jugosas fresas sobre un tierno bizcocho húmedo de vainilla. Es especial, perfecto para compartir momentos dulces. ¡Disfrútalo!
+                            </p>
+                            <span class="text-lg md:text-xl font-black text-blue-900 block mt-2">$27.00 (Molde de 8")</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3: Chocolate Supreme Cake (dona33.jpg) -->
+                <div id="star-slide-2" class="star-slide w-full h-full absolute inset-0 bg-cover bg-center flex items-center justify-start p-6 md:p-12 lg:p-16" style="background-image: url('dona33.jpg');">
+                    <!-- Botón para volver a abrir los detalles si están ocultos -->
+                    <button id="info-btn-2" onclick="toggleSlideInfo(2, true)" class="absolute bottom-6 left-6 bg-blue-900/90 hover:bg-blue-900 text-white font-semibold py-2.5 px-5 rounded-full transition-all shadow-lg flex items-center gap-2 text-sm pointer-events-auto hidden">
+                        <i class="fa-solid fa-circle-info"></i> Ver Detalles
+                    </button>
+
+                    <!-- Tarjeta Glassmorphic encima del fondo de tu imagen (Colapsable) -->
+                    <div id="info-card-2" class="w-full sm:w-2/3 md:w-1/2 text-left bg-white/20 hover:bg-white/30 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/30 shadow-lg max-w-md cursor-pointer transition-all duration-300 group pointer-events-auto relative">
+                        <!-- Botón de Cerrar/Ocultar -->
+                        <button onclick="event.stopPropagation(); toggleSlideInfo(2, false)" class="absolute top-4 right-4 text-blue-900/60 hover:text-blue-900 w-8 h-8 rounded-full bg-white/40 hover:bg-white/80 flex items-center justify-center transition-colors shadow-sm" title="Ocultar Texto">
+                            <i class="fa-solid fa-times"></i>
+                        </button>
+
+                        <div onclick="addStarTreatToCart('Tarta Suprema de Chocolate', 29.00, 'dona33.jpg')">
+                            <span class="text-blue-900/60 font-serif-fancy text-base md:text-lg font-bold block mb-1">Nuestro Dulce Estrella</span>
+                            <h4 class="font-serif-fancy text-xl md:text-2xl font-black text-blue-900 mb-2 group-hover:text-pink-600 transition-colors">Pastel Suprema de Chocolate</h4>
+                            <p class="text-blue-950/90 text-xs md:text-sm leading-relaxed mb-4 font-semibold">
+                                El auténtico deleite de cacao. Tres suaves capas de pastel húmedo de chocolate, cubiertas de fudge belga fundido y finas trufas decorativas. Una tentación dulce indefinible.
+                            </p>
+                            <span class="text-lg md:text-xl font-black text-blue-900 block mt-2">$29.00 (Molde de 8")</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Indicadores de Posición circulares debajo -->
+            <div class="flex justify-center gap-3 mt-4">
+                <span id="star-dot-0" onclick="setStarSlide(0)" class="w-3 h-3 rounded-full bg-blue-900 cursor-pointer transition-colors duration-300"></span>
+                <span id="star-dot-1" onclick="setStarSlide(1)" class="w-3 h-3 rounded-full bg-blue-900/35 hover:bg-blue-900/70 cursor-pointer transition-colors duration-300"></span>
+                <span id="star-dot-2" onclick="setStarSlide(2)" class="w-3 h-3 rounded-full bg-blue-900/35 hover:bg-blue-900/70 cursor-pointer transition-colors duration-300"></span>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: PRODUCTOS DESTACADOS (CON IMÁGENES CORREGIDAS EN .PNG COMO ESTABAN ORIGINALMENTE) -->
+        <section class="w-full bg-white/40 backdrop-blur-md py-12 px-6 md:px-12 relative border-t border-b border-white/20 my-6">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="font-serif-fancy text-3xl md:text-4xl font-bold text-blue-900 mb-8 tracking-wide">
+                    Nuestros Productos Destacados
+                </h3>
+
+                <!-- Carrusel de Productos -->
+                <div class="relative flex items-center justify-center w-full">
+                    <!-- Flecha de navegación Izquierda -->
+                    <button onclick="scrollFeatured('left')" class="absolute -left-2 md:-left-6 z-20 bg-white hover:bg-pink-100 text-blue-900 border border-pink-100 shadow-md w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:outline-none">
+                        <i class="fa-solid fa-chevron-left text-xl"></i>
+                    </button>
+
+                    <!-- Tarjetas de Productos -->
+                    <div id="featured-container" class="flex gap-6 overflow-x-auto py-6 px-4 no-scrollbar scroll-smooth w-full justify-start items-stretch">
+                        
+                        <!-- Tarjeta 1: torta.png (Restaurado) -->
+                        <div onclick="addFeaturedToCart('Pastel de Chocolate de Ensueño', 45.00, 'torta.png')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 min-w-[260px] md:min-w-[280px] flex-1 flex flex-col justify-between cursor-pointer border border-pink-50">
+                            <div class="text-left mb-4">
+                                <h4 class="font-bold text-blue-900 text-lg">Torta Chocolate de Ensueño</h4>
+                                <p class="text-xs text-blue-400 font-semibold mt-1">Con Frutos Rojos y Macarons</p>
+                            </div>
+                            <div class="h-44 flex items-center justify-center my-4">
+                                <img src="torta.png" alt="Torta" class="max-h-full max-w-full object-contain drop-shadow-md">
+                            </div>
+                            <div class="text-left mt-4 border-t border-pink-50 pt-3">
+                                <span class="text-pink-500 font-extrabold text-lg">$45.00 <span class="text-xs font-semibold text-gray-400 font-mono">(Para Compartir)</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 2: wafel.png (Restaurado) -->
+                        <div onclick="addFeaturedToCart('Waffles de Miel Silvestre', 5.50, 'wafel.png')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 min-w-[260px] md:min-w-[280px] flex-1 flex flex-col justify-between cursor-pointer border border-pink-50">
+                            <div class="text-left mb-4">
+                                <h4 class="font-bold text-blue-900 text-lg">Wafel Miel Silvestre</h4>
+                                <p class="text-xs text-blue-400 font-semibold mt-1">Con Cream y Frutas Frescas</p>
+                            </div>
+                            <div class="h-44 flex items-center justify-center my-4">
+                                <img src="wafel.png" alt="Wafel" class="max-h-full max-w-full object-contain drop-shadow-md">
+                            </div>
+                            <div class="text-left mt-4 border-t border-pink-50 pt-3">
+                                <span class="text-pink-500 font-extrabold text-lg">$5.50 <span class="text-xs font-semibold text-gray-400 font-mono">(Set de 2)</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 3: batido.png (Restaurado) -->
+                        <div onclick="addFeaturedToCart('Súper Batido de la Casa', 4.50, 'batido.png')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 min-w-[260px] md:min-w-[280px] flex-1 flex flex-col justify-between cursor-pointer border border-pink-50">
+                            <div class="text-left mb-4">
+                                <h4 class="font-bold text-blue-900 text-lg">Batido Súper Especial</h4>
+                                <p class="text-xs text-blue-400 font-semibold mt-1">Con Crema y Cereza</p>
+                            </div>
+                            <div class="h-44 flex items-center justify-center my-4">
+                                <img src="batido.png" alt="Batido" class="max-h-full max-w-full object-contain drop-shadow-md">
+                            </div>
+                            <div class="text-left mt-4 border-t border-pink-50 pt-3">
+                                <span class="text-pink-500 font-extrabold text-lg">$4.50 <span class="text-xs font-semibold text-gray-400 font-mono">(Vaso Grande)</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 4: pastelillos.png (Restaurado) -->
+                        <div onclick="addFeaturedToCart('Mini Cheesecakes Surtidos', 12.00, 'pastelillos.png')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 min-w-[260px] md:min-w-[280px] flex-1 flex flex-col justify-between cursor-pointer border border-pink-50">
+                            <div class="text-left mb-4">
+                                <h4 class="font-bold text-blue-900 text-lg">Mini Cheesecakes Surtidos</h4>
+                                <p class="text-xs text-blue-400 font-semibold mt-1">Varios sabores premium</p>
+                            </div>
+                            <div class="h-44 flex items-center justify-center my-4">
+                                <img src="pastelillos.png" alt="Pastelillos" class="max-h-full max-w-full object-contain drop-shadow-md">
+                            </div>
+                            <div class="text-left mt-4 border-t border-pink-50 pt-3">
+                                <span class="text-pink-500 font-extrabold text-lg">$12.00 <span class="text-xs font-semibold text-gray-400 font-mono">(Caja de 4)</span></span>
+                            </div>
+                        </div>
+
+                        <!-- Tarjeta 5: macha.png (Restaurado) -->
+                        <div onclick="addFeaturedToCart('Matcha Latte Premium', 3.50, 'macha.png')" class="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 min-w-[260px] md:min-w-[280px] flex-1 flex flex-col justify-between cursor-pointer border border-pink-50">
+                            <div class="text-left mb-4">
+                                <h4 class="font-bold text-blue-900 text-lg">Matcha Latte Premium</h4>
+                                <p class="text-xs text-blue-400 font-semibold mt-1">Té Verde Orgánico Espumoso</p>
+                            </div>
+                            <div class="h-44 flex items-center justify-center my-4">
+                                <img src="macha.png" alt="Matcha" class="max-h-full max-w-full object-contain drop-shadow-md">
+                            </div>
+                            <div class="text-left mt-4 border-t border-pink-50 pt-3">
+                                <span class="text-pink-500 font-extrabold text-lg">$3.50 <span class="text-xs font-semibold text-gray-400 font-mono">(Taza Mediana)</span></span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Flecha derecha -->
+                    <button onclick="scrollFeatured('right')" class="absolute -right-2 md:-right-6 z-20 bg-white hover:bg-pink-100 text-blue-900 border border-pink-100 shadow-md w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:outline-none">
+                        <i class="fa-solid fa-chevron-right text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: RESEÑAS DULCES (SWEET REVIEWS - RECREACIÓN COMPLETA SIN FONDO CSS UTILIZANDO TU IMAGEN 33.JPG Y DD.JPG) -->
+        <section class="w-full relative overflow-hidden my-8 max-w-6xl mx-auto px-4">
+            <!-- Título de la sección -->
+            <h3 class="font-serif-fancy text-3xl md:text-5xl font-black text-blue-900 mb-8 tracking-wide">Opiniones Dulces</h3>
+
+            <!-- Contenedor del Carrusel de Reseñas -->
+            <div class="relative w-full h-[460px] sm:h-[420px] md:h-[460px] rounded-3xl overflow-hidden shadow-2xl">
+                
+                <!-- SLIDE 1 (33.jpg - Imagen con helados y fondo rosa original - Formato JPG) -->
+                <div id="review-slide-0" class="review-slide active w-full h-full absolute inset-0 bg-cover bg-center flex flex-col sm:flex-row items-center justify-between p-6 md:p-10 gap-4" style="background-image: url('33.jpg');">
+                    <!-- Cuadro Transparente de la Izquierda (2 opiniones) -->
+                    <div class="w-full sm:w-[42%] md:max-w-[320px] bg-white/75 backdrop-blur-md p-4 md:p-6 rounded-2xl border border-white/40 text-left pointer-events-auto shadow-lg">
+                        <!-- Opinión 1 -->
+                        <div class="mb-4 md:mb-6">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-900 inline-block"></span>
+                                <h4 class="font-serif-fancy text-sm md:text-base font-bold text-blue-900">Emma Davis</h4>
+                            </div>
+                            <p class="text-blue-950 text-xs md:text-sm font-semibold pl-4 leading-relaxed">
+                                ¡No puedo tener suficiente de Dulces Delicias! Sus pasteles son una sinfonía deliciosa de sabores.
+                            </p>
+                        </div>
+                        <!-- Opinión 2 -->
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-900 inline-block"></span>
+                                <h4 class="font-serif-fancy text-sm md:text-base font-bold text-blue-900">Sarah Johnson</h4>
+                            </div>
+                            <p class="text-blue-950 text-xs md:text-sm font-semibold pl-4 leading-relaxed">
+                                Los Waffles de Miel en Dulces Delicias son un sueño matutino. Crujientes, perfección dorada.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Cuadro Transparente de la Derecha (2 opiniones) -->
+                    <div class="w-full sm:w-[42%] md:max-w-[320px] bg-white/75 backdrop-blur-md p-4 md:p-6 rounded-2xl border border-white/40 text-left pointer-events-auto shadow-lg">
+                        <!-- Opinión 3 -->
+                        <div class="mb-4 md:mb-6">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-900 inline-block"></span>
+                                <h4 class="font-serif-fancy text-sm md:text-base font-bold text-blue-900">Michael Lee</h4>
+                            </div>
+                            <p class="text-blue-950 text-xs md:text-sm font-semibold pl-4 leading-relaxed">
+                                ¡Las galletas con chispas de chocolate son peligrosamente buenas! Tienen el equilibrio perfecto.
+                            </p>
+                        </div>
+                        <!-- Opinión 4 -->
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-900 inline-block"></span>
+                                <h4 class="font-serif-fancy text-sm md:text-base font-bold text-blue-900">Alex Martinez</h4>
+                            </div>
+                            <p class="text-blue-950 text-xs md:text-sm font-semibold pl-4 leading-relaxed">
+                                La dona Orchard Delight es una explosión de verano en cada bocado. La masa es sumamente ligera.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 (dd.jpg - Segunda imagen de helados - Formato JPG) -->
+                <div id="review-slide-1" class="review-slide w-full h-full absolute inset-0 bg-cover bg-center flex flex-col sm:flex-row items-center justify-between p-6 md:p-10 gap-4" style="background-image: url('dd.jpg');">
+                    <!-- Cuadro Transparente de la Izquierda (2 opiniones) -->
+                    <div class="w-full sm:w-[42%] md:max-w-[320px] bg-white/75 backdrop-blur-md p-4 md:p-6 rounded-2xl border border-white/40 text-left pointer-events-auto shadow-lg">
+                        <!-- Opinión 1 -->
+                        <div class="mb-4 md:mb-6">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-900 inline-block"></span>
+                                <h4 class="font-serif-fancy text-sm md:text-base font-bold text-blue-900">Sofía Benítez</h4>
+                            </div>
+                            <p class="text-blue-950 text-xs md:text-sm font-semibold pl-4 leading-relaxed">
+                                Este lugar es simplemente el mejor para trabajar y relajarse con amigos en un ambiente súper dulce.
+                            </p>
+                        </div>
+                        <!-- Opinión 2 -->
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-900 inline-block"></span>
+                                <h4 class="font-serif-fancy text-sm md:text-base font-bold text-blue-900">María Silva</h4>
+                            </div>
+                            <p class="text-blue-950 text-xs md:text-sm font-semibold pl-4 leading-relaxed">
+                                ¡Los postres son tan frescos! Vengo casi todos los días por mi dosis diaria de felicidad.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Cuadro Transparente de la Derecha (2 opiniones) -->
+                    <div class="w-full sm:w-[42%] md:max-w-[320px] bg-white/75 backdrop-blur-md p-4 md:p-6 rounded-2xl border border-white/40 text-left pointer-events-auto shadow-lg">
+                        <!-- Opinión 3 -->
+                        <div class="mb-4 md:mb-6">
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-900 inline-block"></span>
+                                <h4 class="font-serif-fancy text-sm md:text-base font-bold text-blue-900">Juan Duarte</h4>
+                            </div>
+                            <p class="text-blue-950 text-xs md:text-sm font-semibold pl-4 leading-relaxed">
+                                La tarta de fresas es mi favorita absoluta. La recomiendo con los ojos cerrados para cualquier tarde.
+                            </p>
+                        </div>
+                        <!-- Opinión 4 -->
+                        <div>
+                            <div class="flex items-center gap-2 mb-1">
+                                <span class="w-2.5 h-2.5 rounded-full bg-blue-900 inline-block"></span>
+                                <h4 class="font-serif-fancy text-sm md:text-base font-bold text-blue-900">Carlos Gómez</h4>
+                            </div>
+                            <p class="text-blue-950 text-xs md:text-sm font-semibold pl-4 leading-relaxed">
+                                Excelente servicio y productos de primera calidad. Siempre venimos en familia los fines de semana.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Controles y Paginación del Carrusel de Reseñas -->
+            <div class="flex items-center justify-center gap-5 mt-4">
+                <button onclick="changeReviewSlide('prev')" class="text-blue-900 hover:text-pink-600 transition-colors text-lg focus:outline-none" title="Anterior">
+                    <i class="fa-solid fa-arrow-left"></i>
+                </button>
+                <span id="review-slide-indicator" class="text-blue-950 font-bold tracking-widest text-sm font-mono">1/25</span>
+                <button onclick="changeReviewSlide('next')" class="text-blue-900 hover:text-pink-600 transition-colors text-lg focus:outline-none" title="Siguiente">
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+            </div>
+        </section>
+
+        <!-- SECCIÓN: CATEGORÍAS (EXPLORA NUESTRAS DELICIAS) -->
+        <section class="w-full bg-white/95 backdrop-blur-md py-12 px-6 md:px-12 relative border-t border-white/20">
+            <div class="max-w-6xl mx-auto">
+                <h3 class="font-serif-fancy text-3xl md:text-4xl font-bold text-blue-900 mb-8 tracking-wide">
+                    Explora Nuestras Delicias
+                </h3>
+
+                <div class="relative flex items-center justify-center w-full">
+                    <button onclick="scrollGoodies('left')" class="absolute left-0 md:-left-4 z-20 bg-white hover:bg-pink-100 text-blue-900 border border-pink-100 shadow-md w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:outline-none">
+                        <i class="fa-solid fa-chevron-left text-lg"></i>
+                    </button>
+
+                    <div id="goodies-container" class="flex gap-6 md:gap-10 overflow-x-auto py-4 px-8 no-scrollbar scroll-smooth w-full max-w-5xl justify-start md:justify-center items-center">
+                        
+                        <div onclick="exploreCategory('Pasteles 🍰')" class="flex flex-col items-center cursor-pointer group min-w-[90px] flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-pink-100/80 flex items-center justify-center transition-all duration-300 group-hover:scale-115 group-hover:rotate-6 border-2 border-pink-200 shadow-sm">
+                                <span class="text-3xl">🍰</span>
+                            </div>
+                            <span class="mt-3 text-sm font-semibold text-blue-900/80 group-hover:text-pink-600 transition-colors">Pasteles</span>
+                        </div>
+
+                        <div onclick="exploreCategory('Donas 🍩')" class="flex flex-col items-center cursor-pointer group min-w-[90px] flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-pink-100/80 flex items-center justify-center transition-all duration-300 group-hover:scale-115 group-hover:rotate-6 border-2 border-pink-200 shadow-sm">
+                                <span class="text-3xl">🍩</span>
+                            </div>
+                            <span class="mt-3 text-sm font-semibold text-blue-900/80 group-hover:text-pink-600 transition-colors">Donas</span>
+                        </div>
+
+                        <div onclick="exploreCategory('Jugos 🧃')" class="flex flex-col items-center cursor-pointer group min-w-[90px] flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-pink-100/80 flex items-center justify-center transition-all duration-300 group-hover:scale-115 group-hover:rotate-6 border-2 border-pink-200 shadow-sm">
+                                <span class="text-3xl">🧃</span>
+                            </div>
+                            <span class="mt-3 text-sm font-semibold text-blue-900/80 group-hover:text-pink-600 transition-colors">Jugos</span>
+                        </div>
+
+                        <div onclick="exploreCategory('Pizza 🍕')" class="flex flex-col items-center cursor-pointer group min-w-[90px] flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-pink-100/80 flex items-center justify-center transition-all duration-300 group-hover:scale-115 group-hover:rotate-6 border-2 border-pink-200 shadow-sm">
+                                <span class="text-3xl">🍕</span>
+                            </div>
+                            <span class="mt-3 text-sm font-semibold text-blue-900/80 group-hover:text-pink-600 transition-colors">Pizza</span>
+                        </div>
+
+                        <div onclick="exploreCategory('Galletas 🍪')" class="flex flex-col items-center cursor-pointer group min-w-[90px] flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-pink-100/80 flex items-center justify-center transition-all duration-300 group-hover:scale-115 group-hover:rotate-6 border-2 border-pink-200 shadow-sm">
+                                <span class="text-3xl">🍪</span>
+                            </div>
+                            <span class="mt-3 text-sm font-semibold text-blue-900/80 group-hover:text-pink-600 transition-colors">Galletas</span>
+                        </div>
+
+                        <div onclick="exploreCategory('Helados 🍦')" class="flex flex-col items-center cursor-pointer group min-w-[90px] flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-pink-100/80 flex items-center justify-center transition-all duration-300 group-hover:scale-115 group-hover:rotate-6 border-2 border-pink-200 shadow-sm">
+                                <span class="text-3xl">🍦</span>
+                            </div>
+                            <span class="mt-3 text-sm font-semibold text-blue-900/80 group-hover:text-pink-600 transition-colors">Helados</span>
+                        </div>
+
+                        <div onclick="exploreCategory('Croissants 🥐')" class="flex flex-col items-center cursor-pointer group min-w-[90px] flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-pink-100/80 flex items-center justify-center transition-all duration-300 group-hover:scale-115 group-hover:rotate-6 border-2 border-pink-200 shadow-sm">
+                                <span class="text-3xl">🥐</span>
+                            </div>
+                            <span class="mt-3 text-sm font-semibold text-blue-900/80 group-hover:text-pink-600 transition-colors">Croissants</span>
+                        </div>
+
+                        <div onclick="exploreCategory('Cupcakes 🧁')" class="flex flex-col items-center cursor-pointer group min-w-[90px] flex-shrink-0">
+                            <div class="w-16 h-16 rounded-full bg-pink-100/80 flex items-center justify-center transition-all duration-300 group-hover:scale-115 group-hover:rotate-6 border-2 border-pink-200 shadow-sm">
+                                <span class="text-3xl">🧁</span>
+                            </div>
+                            <span class="mt-3 text-sm font-semibold text-blue-900/80 group-hover:text-pink-600 transition-colors">Cupcakes</span>
+                        </div>
+
+                    </div>
+
+                    <button onclick="scrollGoodies('right')" class="absolute right-0 md:-right-4 z-20 bg-white hover:bg-pink-100 text-blue-900 border border-pink-100 shadow-md w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 focus:outline-none">
+                        <i class="fa-solid fa-chevron-right text-lg"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="w-full relative z-10 bg-white">
+        <div class="scalloped-border absolute -top-7 left-0 right-0"></div>
+        <div class="pt-6 pb-4 text-center text-blue-900 text-xs font-semibold tracking-wider uppercase">
+            © 2026 Dulces Delicias. Hecho con ❤️ y sabor.
+        </div>
+    </footer>
+
+    <!-- SIDEBAR DE MENÚ LATERAL -->
+    <div id="sidebar-menu" class="fixed inset-y-0 left-0 w-80 bg-white shadow-2xl z-50 transform -translate-x-full transition-transform duration-300 ease-in-out">
+        <div class="p-6 h-full flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-center mb-8">
+                    <h3 class="font-serif-fancy text-xl font-bold text-blue-900">Menú Dulce</h3>
+                    <button onclick="toggleSidebarMenu()" class="text-blue-900 text-xl hover:scale-110 transition-transform focus:outline-none">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <nav class="space-y-4">
+                    <a href="#" onclick="toggleSidebarMenu()" class="flex items-center gap-3 text-lg font-semibold text-blue-900 hover:text-pink-500 p-2 rounded-lg hover:bg-pink-50 transition-all">
+                        <i class="fa-solid fa-house w-6 text-center"></i> Inicio
+                    </a>
+                    <a href="#" onclick="toggleSidebarMenu()" class="flex items-center gap-3 text-lg font-semibold text-blue-900 hover:text-pink-500 p-2 rounded-lg hover:bg-pink-50 transition-all">
+                        <i class="fa-solid fa-cookie-bite w-6 text-center"></i> Donas Especiales
+                    </a>
+                    <a href="#" onclick="alertMessage('¡Nuestra cafetería gourmet estará disponible muy pronto!')" class="flex items-center gap-3 text-lg font-semibold text-blue-900 hover:text-pink-500 p-2 rounded-lg hover:bg-pink-50 transition-all">
+                        <i class="fa-solid fa-mug-hot w-6 text-center"></i> Cafetería
+                    </a>
+                    <a href="#" onclick="alertMessage('Haz tu pedido personalizado llamando al: +34 900 DULCES')" class="flex items-center gap-3 text-lg font-semibold text-blue-900 hover:text-pink-500 p-2 rounded-lg hover:bg-pink-50 transition-all">
+                        <i class="fa-solid fa-cake-candles w-6 text-center"></i> Pedidos Especiales
+                    </a>
+                </nav>
+            </div>
+            <div class="border-t pt-4">
+                <p class="text-xs text-gray-500 text-center">Síguenos en redes sociales</p>
+                <div class="flex justify-center gap-4 mt-2 text-blue-900 text-lg">
+                    <a href="#" class="hover:text-pink-500"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="hover:text-pink-500"><i class="fa-brands fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="sidebar-overlay" onclick="toggleSidebarMenu()" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 hidden transition-opacity"></div>
+
+    <!-- SIDEBAR DE CARRITO -->
+    <div id="cart-sidebar" class="fixed inset-y-0 right-0 w-80 md:w-96 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 ease-in-out flex flex-col justify-between">
+        <div class="p-6 flex-grow flex flex-col overflow-y-auto">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="font-serif-fancy text-2xl font-bold text-blue-900">Tu Pedido</h3>
+                <button onclick="toggleCart()" class="text-blue-900 text-xl hover:scale-110 transition-transform focus:outline-none">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            
+            <div id="cart-items" class="space-y-4 flex-grow">
+                <p class="text-gray-500 text-center py-8">¡Tu carrito está vacío todavía! ¡Añade algunas delicias!</p>
+            </div>
+        </div>
+
+        <div class="p-6 border-t bg-gray-50">
+            <div class="flex justify-between items-center mb-4">
+                <span class="text-gray-600 font-medium">Subtotal</span>
+                <span id="cart-subtotal" class="text-xl font-bold text-blue-900">$0.00 USD</span>
+            </div>
+            <button onclick="checkoutOrder()" class="w-full bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-6 rounded-full transition-colors flex items-center justify-center gap-2 shadow-md">
+                <i class="fa-solid fa-basket-shopping"></i> Completar Compra
+            </button>
+        </div>
+    </div>
+    <div id="cart-overlay" onclick="toggleCart()" class="fixed inset-0 bg-black/40 backdrop-blur-xs z-40 hidden transition-opacity"></div>
+
+    <!-- MODAL DE DETALLES DE DONAS -->
+    <div id="donut-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <div onclick="closeDonutDetails()" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        <div class="bg-white rounded-3xl overflow-hidden max-w-md w-full shadow-2xl z-10 transform scale-95 transition-transform duration-300">
+            <div class="relative h-64 w-full p-8 flex items-center justify-center bg-blue-50/20">
+                <img id="modal-image" src="" alt="" class="max-h-full max-w-full object-contain drop-shadow-2xl">
+                <button onclick="closeDonutDetails()" class="absolute top-4 right-4 bg-white/80 hover:bg-white text-blue-900 w-10 h-10 rounded-full flex items-center justify-center shadow-lg transition-transform hover:scale-110">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 id="modal-title" class="font-serif-fancy text-2xl font-bold text-blue-900">Dona</h3>
+                    <span id="modal-price" class="text-xl font-extrabold text-pink-600">$0.00</span>
+                </div>
+                
+                <div class="flex flex-wrap gap-2 mb-6">
+                    <span class="bg-blue-50 text-blue-800 text-xs px-3 py-1 rounded-full font-semibold">Hecho a Mano</span>
+                    <span class="bg-pink-50 text-pink-800 text-xs px-3 py-1 rounded-full font-semibold">Fresco del Día</span>
+                </div>
+
+                <button id="modal-add-btn" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 px-6 rounded-full transition-colors flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-plus"></i> Añadir al Carrito <span id="modal-btn-price"></span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- NOTIFICACIÓN TOAST -->
+    <div id="custom-alert" class="fixed top-5 left-1/2 -translate-x-1/2 bg-blue-900 text-white px-6 py-3 rounded-full shadow-2xl z-[100] transform -translate-y-24 transition-transform duration-300 flex items-center gap-3">
+        <i class="fa-solid fa-wand-magic-sparkles text-pink-400"></i>
+        <span id="alert-text">Mensaje</span>
+    </div>
+
+    <!-- LÓGICA DE PROGRAMACIÓN INTERACTIVA -->
+    <script>
+        // Datos de las Donas de Dulces Delicias (Sin descripciones)
+        // Corregido: Las rutas de imagen ahora son exactamente las que cargan en el HTML Grid
+        const donutsData = [
+            {
+                id: 0,
+                name: "Chocolate Glaseado",
+                price: 2.95,
+                image: "donut_chocolate_glaze_3d.jpg-removebg-preview.png"
+            },
+            {
+                id: 1,
+                name: "Glaseado Blanco Maní",
+                price: 3.25,
+                image: "donut_white_glaze_peanut_condensed_milk.jpg-removebg-preview.png"
+            },
+            {
+                id: 2,
+                name: "Caramelo & Cookies",
+                price: 3.50,
+                image: "donut_dulce_de_leche_cookies.jpg-removebg-preview.png"
+            },
+            {
+                id: 3,
+                name: "Glaseado Rosa",
+                price: 2.85,
+                image: "donut_pink_glaze_3d.jpg-removebg-preview.png"
+            }
+        ];
+
+        let cart = [];
+
+        // Notificaciones personalizadas estilo Toast
+        function alertMessage(msg) {
+            const alertBox = document.getElementById('custom-alert');
+            document.getElementById('alert-text').innerText = msg;
+            alertBox.classList.remove('-translate-y-24');
+            alertBox.classList.add('translate-y-0');
+            setTimeout(() => {
+                alertBox.classList.remove('translate-y-0');
+                alertBox.classList.add('-translate-y-24');
+            }, 3500);
+        }
+
+        // Función para explorar categoría
+        function exploreCategory(categoryName) {
+            alertMessage(`¡Explorando la sección de ${categoryName}! Próximamente disponible ✨`);
+        }
+
+        // Desplazamiento del Carrusel de Goodies
+        function scrollGoodies(direction) {
+            const container = document.getElementById('goodies-container');
+            const scrollAmount = 200;
+            if (direction === 'left') {
+                container.scrollLeft -= scrollAmount;
+            } else {
+                container.scrollLeft += scrollAmount;
+            }
+        }
+
+        // Desplazamiento del Carrusel de Productos Destacados
+        function scrollFeatured(direction) {
+            const container = document.getElementById('featured-container');
+            const scrollAmount = 300;
+            if (direction === 'left') {
+                container.scrollLeft -= scrollAmount;
+            } else {
+                container.scrollLeft += scrollAmount;
+            }
+        }
+
+        // Añadir elementos destacados al carrito
+        function addFeaturedToCart(name, price, image) {
+            const itemId = name.replace(/\s+/g, '-').toLowerCase();
+            const existingItem = cart.find(item => item.id === itemId);
+
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({
+                    id: itemId,
+                    name: name,
+                    price: price,
+                    image: image,
+                    qty: 1
+                });
+            }
+            updateCartUI();
+            alertMessage(`¡${name} añadido al carrito! 🛒✨`);
+        }
+
+        // --- SISTEMA DEL CARRUSEL DE TARTAS ESTRELLA ---
+        let currentStarSlide = 0;
+        const totalStarSlides = 3;
+        let starSlideInterval;
+
+        // Función para colapsar y expandir la info de la diapositiva actual
+        function toggleSlideInfo(slideIndex, show) {
+            const card = document.getElementById(`info-card-${slideIndex}`);
+            const btn = document.getElementById(`info-btn-${slideIndex}`);
+            if (show) {
+                card.classList.remove('hidden');
+                setTimeout(() => {
+                    card.classList.remove('opacity-0', 'scale-95');
+                    card.classList.add('opacity-100', 'scale-100');
+                }, 10);
+                btn.classList.add('hidden');
+            } else {
+                card.classList.add('opacity-0', 'scale-95');
+                card.classList.remove('opacity-100', 'scale-100');
+                setTimeout(() => {
+                    card.classList.add('hidden');
+                    btn.classList.remove('hidden');
+                }, 300);
+            }
+        }
+
+        function setStarSlide(index) {
+            clearInterval(starSlideInterval);
+            document.getElementById(`star-slide-${currentStarSlide}`).classList.remove('active');
+            document.getElementById(`star-dot-${currentStarSlide}`).classList.add('bg-blue-900/35');
+            document.getElementById(`star-dot-${currentStarSlide}`).classList.remove('bg-blue-900');
+
+            toggleSlideInfo(currentStarSlide, true);
+            currentStarSlide = index;
+
+            document.getElementById(`star-slide-${currentStarSlide}`).classList.add('active');
+            document.getElementById(`star-dot-${currentStarSlide}`).classList.remove('bg-blue-900/35');
+            document.getElementById(`star-dot-${currentStarSlide}`).classList.add('bg-blue-900');
+
+            toggleSlideInfo(currentStarSlide, true);
+            startStarCarouselTimer();
+        }
+
+        function nextStarSlide() {
+            let nextIndex = (currentStarSlide + 1) % totalStarSlides;
+            setStarSlide(nextIndex);
+        }
+
+        function startStarCarouselTimer() {
+            starSlideInterval = setInterval(() => {
+                nextStarSlide();
+            }, 10000);
+        }
+
+        // --- SISTEMA DEL CARRUSEL DE RESEÑAS ---
+        let currentReviewSlide = 0;
+        const totalReviewSlides = 2;
+
+        function changeReviewSlide(direction) {
+            // Quitar clase activa actual
+            document.getElementById(`review-slide-${currentReviewSlide}`).classList.remove('active');
+
+            if (direction === 'next') {
+                currentReviewSlide = (currentReviewSlide + 1) % totalReviewSlides;
+            } else {
+                currentReviewSlide = (currentReviewSlide - 1 + totalReviewSlides) % totalReviewSlides;
+            }
+
+            // Activar nueva diapositiva
+            document.getElementById(`review-slide-${currentReviewSlide}`).classList.add('active');
+
+            // Actualizar el paginado flotante
+            const pages = ["1/25", "2/25"];
+            document.getElementById('review-slide-indicator').innerText = pages[currentReviewSlide];
+        }
+
+        // Iniciar temporizador al cargar la página
+        window.addEventListener('DOMContentLoaded', () => {
+            startStarCarouselTimer();
+        });
+
+        function addStarTreatToCart(name, price, image) {
+            const itemId = name.replace(/\s+/g, '-').toLowerCase();
+            const existingItem = cart.find(item => item.id === itemId);
+
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({
+                    id: itemId,
+                    name: name,
+                    price: price,
+                    image: image,
+                    qty: 1
+                });
+            }
+            updateCartUI();
+            alertMessage(`¡${name} añadida al carrito! 🍰`);
+        }
+
+        // Menú lateral
+        function toggleSidebarMenu() {
+            const sidebar = document.getElementById('sidebar-menu');
+            const overlay = document.getElementById('sidebar-overlay');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        // Carrito de compras
+        function toggleCart() {
+            const cartSidebar = document.getElementById('cart-sidebar');
+            const overlay = document.getElementById('cart-overlay');
+            if (cartSidebar.classList.contains('translate-x-full')) {
+                cartSidebar.classList.remove('translate-x-full');
+                overlay.classList.remove('hidden');
+            } else {
+                cartSidebar.classList.add('translate-x-full');
+                overlay.classList.add('hidden');
+            }
+        }
+
+        // Mostrar detalles de la Dona
+        function showDonutDetails(id) {
+            const donut = donutsData.find(d => d.id === id);
+            if (!donut) return;
+
+            document.getElementById('modal-image').src = donut.image;
+            document.getElementById('modal-image').alt = donut.name;
+            document.getElementById('modal-title').innerText = donut.name;
+            document.getElementById('modal-price').innerText = `$${donut.price.toFixed(2)} USD`;
+            document.getElementById('modal-btn-price').innerText = `$${donut.price.toFixed(2)}`;
+
+            const btn = document.getElementById('modal-add-btn');
+            btn.onclick = () => {
+                addToCart(id);
+                closeDonutDetails();
+            };
+
+            const modal = document.getElementById('donut-modal');
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.querySelector('.bg-white').classList.remove('scale-95');
+                modal.querySelector('.bg-white').classList.add('scale-100');
+            }, 50);
+        }
+
+        function closeDonutDetails() {
+            const modal = document.getElementById('donut-modal');
+            modal.querySelector('.bg-white').classList.remove('scale-100');
+            modal.querySelector('.bg-white').classList.add('scale-95');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 200);
+        }
+
+        function addToCart(id) {
+            const donut = donutsData.find(d => d.id === id);
+            if (!donut) return;
+
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.qty += 1;
+            } else {
+                cart.push({ ...donut, qty: 1 });
+            }
+
+            updateCartUI();
+            alertMessage(`¡${donut.name} añadida al carrito! 🍩`);
+        }
+
+        function removeFromCart(id) {
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                if (existingItem.qty > 1) {
+                    existingItem.qty -= 1;
+                } else {
+                    cart = cart.filter(item => item.id !== id);
+                }
+            }
+            updateCartUI();
+        }
+
+        // Auxiliar para sumar cantidades desde el menú lateral del carrito
+        function addExistingItemQty(id) {
+            const existingItem = cart.find(item => item.id === id);
+            if (existingItem) {
+                existingItem.qty += 1;
+            }
+            updateCartUI();
+        }
+
+        // Actualizar UI del Carrito
+        function updateCartUI() {
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartBadge = document.getElementById('cart-badge');
+            const cartSubtotal = document.getElementById('cart-subtotal');
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = `
+                    <div class="text-center py-12">
+                        <i class="fa-solid fa-cookie-bite text-gray-300 text-5xl mb-3"></i>
+                        <p class="text-gray-500 font-medium">¡Tu carrito está vacío todavía!</p>
+                        <p class="text-gray-400 text-xs">Agrega dulces delicias para saborear</p>
+                    </div>
+                `;
+                cartBadge.classList.add('hidden');
+                cartSubtotal.innerText = "$0.00 USD";
+                return;
+            }
+
+            let totalQty = 0;
+            let subtotal = 0;
+            let htmlContent = "";
+
+            cart.forEach(item => {
+                totalQty += item.qty;
+                subtotal += item.price * item.qty;
+
+                const isStarTreat = typeof item.id === 'string';
+                const removeAction = `removeFromCart('${item.id}')`;
+                const addAction = isStarTreat ? `addExistingItemQty('${item.id}')` : `addToCart(${item.id})`;
+
+                htmlContent += `
+                    <div class="flex items-center justify-between bg-blue-50/50 p-3 rounded-2xl border border-blue-100">
+                        <div class="flex items-center gap-3">
+                            <img src="${item.image}" alt="${item.name}" class="w-12 h-12 rounded-full object-cover border-2 border-pink-300">
+                            <div>
+                                <h4 class="font-bold text-blue-900 text-sm">${item.name}</h4>
+                                <span class="text-xs text-pink-600 font-bold">$${item.price.toFixed(2)} c/u</span>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="${removeAction}" class="text-blue-900 bg-white hover:bg-pink-100 w-6 h-6 rounded-full flex items-center justify-center shadow-sm transition-colors text-xs font-bold">
+                                -
+                            </button>
+                            <span class="font-extrabold text-blue-900 text-sm w-4 text-center">${item.qty}</span>
+                            <button onclick="${addAction}" class="text-blue-900 bg-white hover:bg-blue-200 w-6 h-6 rounded-full flex items-center justify-center shadow-sm transition-colors text-xs font-bold">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartItemsContainer.innerHTML = htmlContent;
+            cartBadge.innerText = totalQty;
+            cartBadge.classList.remove('hidden');
+            cartSubtotal.innerText = `$${subtotal.toFixed(2)} USD`;
+        }
+
+        // Buscar dona o pastel estrella de forma dinámica
+        function handleSearch(event) {
+            event.preventDefault();
+            const query = document.getElementById('search-input').value.toLowerCase().trim();
+            const feedback = document.getElementById('search-feedback');
+
+            if (query === "") {
+                resetSearch();
+                return;
+            }
+
+            const foundDonut = donutsData.find(d => d.name.toLowerCase().includes(query));
+
+            if (foundDonut) {
+                feedback.classList.remove('hidden');
+                feedback.innerHTML = `<span class="text-blue-900">¡Encontrado! 🎉</span> <span class="underline cursor-pointer" onclick="showDonutDetails(${foundDonut.id})">${foundDonut.name}</span>`;
+                showDonutDetails(foundDonut.id);
+                return;
+            }
+
+            if (query.includes("arándano") || query.includes("tarta") || query.includes("azul") || query.includes("blueberry")) {
+                feedback.classList.remove('hidden');
+                feedback.innerHTML = `<span class="text-blue-900">¡Encontrado! 🎉</span> <span class="underline cursor-pointer" onclick="setStarSlide(0)">Tarta Éxtasis de Arándano</span>`;
+                setStarSlide(0);
+            } else if (query.includes("fresa") || query.includes("rojo") || query.includes("strawberry")) {
+                feedback.classList.remove('hidden');
+                feedback.innerHTML = `<span class="text-blue-900">¡Encontrado! 🎉</span> <span class="underline cursor-pointer" onclick="setStarSlide(1)">Tarta Delicia de Fresa</span>`;
+                setStarSlide(1);
+            } else if (query.includes("chocolate") || query.includes("negro") || query.includes("marrón") || query.includes("choco")) {
+                feedback.classList.remove('hidden');
+                feedback.innerHTML = `<span class="text-blue-900">¡Encontrado! 🎉</span> <span class="underline cursor-pointer" onclick="setStarSlide(2)">Tarta Suprema de Chocolate</span>`;
+                setStarSlide(2);
+            } else {
+                feedback.classList.remove('hidden');
+                feedback.innerText = "¡Ese postre no lo encontramos, pero echa un vistazo a los demás destacados! ✨";
+            }
+        }
+
+        function resetSearch() {
+            document.getElementById('search-input').value = "";
+            document.getElementById('search-feedback').classList.add('hidden');
+        }
+
+        // Confirmar compra simulada
+        function checkoutOrder() {
+            if (cart.length === 0) {
+                alertMessage("El carrito está vacío, agrega delicias primero.");
+                return;
+            }
+            alertMessage("¡Gracias por tu compra! Tu orden dulce ya está en camino 🛵🍰🍩");
+            cart = [];
+            updateCartUI();
+            toggleCart();
+        }
+    </script>
+</body>
+</html>
